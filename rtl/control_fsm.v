@@ -30,7 +30,7 @@ module control_fsm (
             case(state)
                 IDLE: begin
                     step_counter <= 4'd0;
-                    if (start) begin
+                    if (!start) begin
                         state <= COMPUTE;
                     end
                 end

@@ -18,6 +18,10 @@ module bsram #(
 
     reg [DATA_WIDTH-1:0] ram_block [0:RAM_DEPTH-1]; // declare memory block (array of registers)
 
+    initial begin
+        $readmemh("init.hex", ram_block);
+    end
+
     always @(posedge clk) begin
         if (we) begin
             // write mode: put data_in into specific memory address
